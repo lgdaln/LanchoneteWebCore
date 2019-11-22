@@ -1,0 +1,70 @@
+﻿@model IEnumerable<LanchoneteCore.Models.Pedido>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Data)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Hora)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Statusp)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Produto)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ValorAtual)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Atendente)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cliente)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Data)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Hora)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Statusp)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Produto.Nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ValorAtual)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Atendente.Nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cliente.Nome)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.PedidoID">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.PedidoID">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.PedidoID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
